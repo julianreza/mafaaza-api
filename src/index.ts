@@ -20,6 +20,8 @@ try {
 await mkdir(env.UPLOAD_DIR, { recursive: true });
 
 const app = createApp({ db: database.db, env }).listen({ port: env.PORT, hostname: env.HOST });
+// Prune expired login-limiter entries so the per-IP map cannot grow unbounded.
+const stopLimiterSweeper = app.services.auth.limiter.startSweeper();
 logger.info("server started", { host: env.HOST, port: env.PORT, env: env.NODE_ENV, openapi: env.OPENAPI_ENABLED });
 
 let stopping = false;
@@ -27,6 +29,7 @@ async function shutdown(signal: string) {
   if (stopping) return;
   stopping = true;
   logger.info("shutting down", { signal });
+  stopLimiterSweeper();
   await app.stop();
   await database.close();
   process.exit(0);

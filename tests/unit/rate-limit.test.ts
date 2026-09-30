@@ -43,4 +43,20 @@ describe("LoginRateLimiter", () => {
     rl.sweep();
     expect(rl.size).toBe(0);
   });
+
+  test("startSweeper prunes on its interval and stops when told", async () => {
+    let now = 0;
+    const rl = new LoginRateLimiter({ now: () => now });
+    rl.recordFailure("x");
+    now += 16 * 60_000;
+    const stop = rl.startSweeper(10);
+    await Bun.sleep(40);
+    expect(rl.size).toBe(0);
+
+    stop();
+    rl.recordFailure("y");
+    now += 16 * 60_000;
+    await Bun.sleep(40);
+    expect(rl.size).toBe(1);
+  });
 });
