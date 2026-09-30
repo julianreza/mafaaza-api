@@ -1,0 +1,27 @@
+{
+  "decisions": [
+    {
+      "id": "sample-users-table",
+      "title": "Add the quickstart's sample users table and index.tsx?",
+      "options": ["No, reuse the existing schema and client", "Yes, add them as-is"],
+      "recommended": "No, reuse the existing schema and client",
+      "answer": "No, reuse the existing schema and client"
+    },
+    {
+      "id": "migration-connection",
+      "title": "Which connection should migrations and drizzle-kit use on Supabase?",
+      "options": ["Separate DATABASE_MIGRATION_URL (port 5432)", "Same transaction pooler URL (port 6543)"],
+      "recommended": "Separate DATABASE_MIGRATION_URL (port 5432)",
+      "answer": "Separate DATABASE_MIGRATION_URL (port 5432)"
+    },
+    {
+      "id": "agent-skills",
+      "title": "Include the optional Supabase agent-skills install?",
+      "options": ["Skip it", "Include it as a task"],
+      "recommended": "Skip it",
+      "answer": "Include it as a task"
+    }
+  ],
+  "blocking": null,
+  "context": { "template": "src/db/client.ts + src/config/env.ts" }
+}

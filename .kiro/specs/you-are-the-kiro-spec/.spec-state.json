@@ -1,0 +1,50 @@
+{
+  "decisions": [
+    {
+      "id": "scope-mvp",
+      "title": "Cakupan MVP: fitur inti apa saja yang masuk rilis pertama?",
+      "options": [
+        "Penjualan + Pengeluaran + Produk + Dashboard + Audit",
+        "Tambah inventori/stok bahan baku",
+        "Tambah multi-cabang/outlet"
+      ],
+      "recommended": "Penjualan + Pengeluaran + Produk + Dashboard + Audit",
+      "answer": "Penjualan + Pengeluaran + Produk + Dashboard + Audit"
+    },
+    {
+      "id": "auth-model",
+      "title": "Model login & peran pengguna",
+      "options": [
+        "Email+password, JWT, peran OWNER & CASHIER",
+        "Satu akun admin tanpa peran"
+      ],
+      "recommended": "Email+password, JWT, peran OWNER & CASHIER",
+      "answer": "Satu akun admin tanpa peran"
+    },
+    {
+      "id": "tax",
+      "title": "Apakah pajak (PB1/PPN) atau service charge perlu dihitung di penjualan?",
+      "options": [
+        "Tidak, di luar MVP",
+        "Ya, PB1 10% opsional per transaksi"
+      ],
+      "recommended": "Tidak, di luar MVP",
+      "answer": "Tidak, di luar MVP"
+    },
+    {
+      "id": "login-rate-limit-store",
+      "title": "Penyimpanan penghitung rate-limit login",
+      "options": [
+        "In-memory (satu instance)",
+        "Tabel PostgreSQL (multi-instance)"
+      ],
+      "recommended": "In-memory (satu instance)",
+      "answer": "In-memory (satu instance)"
+    }
+  ],
+  "blocking": "Menunggu review tasks.md.",
+  "context": {
+    "template": "Greenfield Elysia+Bun (repo masih template bun create elysia); dimodelkan sebagai modul per domain (routes/service/schema Drizzle).",
+    "phase": "tasks"
+  }
+}

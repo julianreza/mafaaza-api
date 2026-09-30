@@ -1,0 +1,40 @@
+{
+  "decisions": [
+    {
+      "id": "scope-mvp",
+      "title": "Cakupan MVP: fitur inti apa saja yang masuk rilis pertama?",
+      "options": [
+        "Penjualan + Pengeluaran + Produk + Dashboard ringkasan (rekomendasi)",
+        "Tambah juga: Inventori/stok bahan baku & kartu stok",
+        "Tambah juga: Multi-cabang/outlet"
+      ],
+      "recommended": "Penjualan + Pengeluaran + Produk + Dashboard ringkasan (rekomendasi)",
+      "answer": null
+    },
+    {
+      "id": "auth-model",
+      "title": "Model login & peran pengguna",
+      "options": [
+        "Email+password, JWT, 2 peran: OWNER & CASHIER (rekomendasi)",
+        "Satu akun admin tunggal tanpa peran",
+        "Multi-peran lengkap (owner/manager/kasir) sejak awal"
+      ],
+      "recommended": "Email+password, JWT, 2 peran: OWNER & CASHIER (rekomendasi)",
+      "answer": null
+    },
+    {
+      "id": "sales-granularity",
+      "title": "Detail pencatatan penjualan",
+      "options": [
+        "Per transaksi dengan line-item produk & qty (rekomendasi)",
+        "Cukup total nominal per transaksi tanpa rincian item"
+      ],
+      "recommended": "Per transaksi dengan line-item produk & qty (rekomendasi)",
+      "answer": null
+    }
+  ],
+  "blocking": "Menunggu review requirements.md dan jawaban 3 keputusan cakupan.",
+  "context": {
+    "template": "Greenfield Elysia+Bun REST API (tidak ada modul acuan di repo); memodelkan arsitektur bergaya modular resource (routes/services/db-schema per domain)."
+  }
+}
